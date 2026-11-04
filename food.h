@@ -8,13 +8,14 @@
 #include <vector>
 
 struct Food {
+    std::string category;
     std::string name;
     double protein;
     double carbohydrates;
     double sugar;
 };
 
-std::vector<Food> loadFoods(string fileName);
+std::vector<Food> loadFoods(std::string fileName);
 
 
 #endif //YUMYUMINMYTUMTUM_FOOD_H
