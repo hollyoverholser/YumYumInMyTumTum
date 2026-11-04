@@ -7,33 +7,36 @@
 
 #include <vector>
 #include <string>
+#include "food.h"
 
-using Row = std::vector<std::string>;
+enum class SortField { Protein, Carbohydrates, Sugar };
 
 class MaxHeap {
 	public:
 		MaxHeap();
-		bool build(cosnt std::vector<Row>& rows, const Row& header, const std::string& fieldName);
-		bool build(const Row& row, size_t column, size_t numColumns);
+		bool build(const std::vector<Food>& foods, const std::string& fieldName);
+		void build(const std::vector<Food>& foods, SortField field);
 
-		void push(const Row& row);
-		Row pop();
-		const Row& top() const;
+		void push(const Food& food);
+		Food pop();
+		const Food& top() const;
 
 		bool empty() const;
 		size_t size() const;
-		size_t sortColumn() const;
+		SortField sortField() const;
 
-		std::vector<Row> topK(size_t k) const;
+		std::vector<Food> topK(size_t k) const;
 		void printTop(size_t k) const;
 
-		static size_t findColumn(const Row& header, cosnt std::string& name);
+		static bool parseField(const std::string& name, SortField& field);
+		static std::string fieldName(SortField field);
 
 	private:
-		std::vector<Row> data_;
-		size_t column_;
+		std::vector<Food> data_;
+		SortField sortField_;
 
-		bool less(const row& a, const Row& b) const;
+		double value(const Food& food) const;
+		bool less(const Food& a, const Food& b) const;
 		void heapifyUp(size_t i);
 		voidheapifyDown(size_t i);
 };
