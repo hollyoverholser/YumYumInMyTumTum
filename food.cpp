@@ -75,6 +75,7 @@ vector<Food> loadFoods(string fileName) {
 		vector<string> values = parseCSV(line);
 
 		Food food;
+		food.category = values[0];
 		food.name = values[1];
 		food.protein = convertToDouble(values[proteinIndex]);
 		food.carbohydrates = convertToDouble(values[carbIndex]);
