@@ -41,3 +41,39 @@ void MergeSort::split_helper(std::vector<Food>& foods, int first, int last, int 
 
     merge(foods, first, mid, last, nutrientChoice);
 }
+
+void MergeSort::merge(std::vector<Food>& foods, int first, int mid, int last, int nutrientChoice) {
+    std::vector<Food> mergedFoods;
+
+    int left = first;
+    int right = mid + 1;
+
+    while (left <= mid && right <= last) {
+        if (nutrient_decider(foods[left], nutrientChoice) <= nutrient_decider(foods[right], nutrientChoice)) {
+            mergedFoods.push_back(foods[left]);
+            left++;
+        } else if (nutrient_decider(foods[left], nutrientChoice) > nutrient_decider(foods[right], nutrientChoice)) {
+            mergedFoods.push_back(foods[right]);
+            right++;
+        } else {
+            return;
+        }
+    }
+
+    while (left <= mid) {
+        mergedFoods.push_back(foods[left]);
+        left++;
+    }
+
+    while (right <= last) {
+        mergedFoods.push_back(foods[right]);
+        right++;
+    }
+
+    int i = 0;
+    while (i < mergedFoods.size()) {
+        foods[first] = mergedFoods[i];
+        first++;
+        i++;
+    }
+}
