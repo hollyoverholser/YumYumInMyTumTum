@@ -5,6 +5,8 @@
 #include "mergeSort.h"
 #include <stdexcept>
 
+
+
 double MergeSort::nutrient_decider(const Food& food_dish, int nutrientChoice) {
     if (nutrientChoice == 1) {
         return food_dish.protein;
@@ -15,4 +17,15 @@ double MergeSort::nutrient_decider(const Food& food_dish, int nutrientChoice) {
     } else {
         throw std::invalid_argument("Invalid nutrient choice");
     }
+}
+
+void MergeSort::mergeSort(std::vector<Food>& matchingCategory, int nutrientChoice) {
+    if (matchingCategory.empty() || matchingCategory.size() == 1) {
+        return;
+    }
+
+    int first = 0;
+    int last = matchingCategory.size() - 1;
+
+    split_helper(matchingCategory, first, last, nutrientChoice);
 }
