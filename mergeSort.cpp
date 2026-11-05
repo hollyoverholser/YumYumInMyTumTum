@@ -5,8 +5,12 @@
 #include "mergeSort.h"
 #include <stdexcept>
 
+// Referenced https://www.geeksforgeeks.org/dsa/merge-sort/,
+// https://www.geeksforgeeks.org/cpp/how-to-throw-an-exception-in-cpp/,
+// and the Merge Sort and Merge Sort Code Trace lectures present in Module 8
+// for help with implementation and understanding merge sort.
 
-
+// helper function to return nutrient value according to user selection
 double MergeSort::nutrient_decider(const Food& food_dish, int nutrientChoice) {
     if (nutrientChoice == 1) {
         return food_dish.protein;
@@ -19,6 +23,7 @@ double MergeSort::nutrient_decider(const Food& food_dish, int nutrientChoice) {
     }
 }
 
+// function that starts merge sort
 void MergeSort::mergeSort(std::vector<Food>& matchingCategory, int nutrientChoice) {
     if (matchingCategory.empty() || matchingCategory.size() == 1) {
         return;
@@ -30,6 +35,7 @@ void MergeSort::mergeSort(std::vector<Food>& matchingCategory, int nutrientChoic
     split_helper(matchingCategory, first, last, nutrientChoice);
 }
 
+// helper function to recursively divide vector
 void MergeSort::split_helper(std::vector<Food>& foods, int first, int last, int nutrientChoice) {
     if (first >= last) {
         return;
@@ -42,6 +48,7 @@ void MergeSort::split_helper(std::vector<Food>& foods, int first, int last, int 
     merge(foods, first, mid, last, nutrientChoice);
 }
 
+// helper function to merge sorted sections of the vector
 void MergeSort::merge(std::vector<Food>& foods, int first, int mid, int last, int nutrientChoice) {
     std::vector<Food> mergedFoods;
 
