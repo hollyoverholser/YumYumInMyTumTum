@@ -94,6 +94,8 @@ int main() {
         else if (sortChoice == 2) {
             // call merge sort function: maybe include nutrient choice as a parameter to sort off of and use matchingCategory foods
             // stores specific item that is lowest in that macro in a variable (matchingCategory[0] if sorted in place)
+            MergeSort f;
+            f.mergeSort(matchingCategory, nutrientChoice);
         }
 
         if (nutrientChoice == 1) {
