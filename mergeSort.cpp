@@ -29,3 +29,15 @@ void MergeSort::mergeSort(std::vector<Food>& matchingCategory, int nutrientChoic
 
     split_helper(matchingCategory, first, last, nutrientChoice);
 }
+
+void MergeSort::split_helper(std::vector<Food>& foods, int first, int last, int nutrientChoice) {
+    if (first >= last) {
+        return;
+    }
+
+    int mid = first + (last - first) / 2;
+    split_helper(foods, first, mid, nutrientChoice);
+    split_helper(foods, mid + 1, last, nutrientChoice);
+
+    merge(foods, first, mid, last, nutrientChoice);
+}
