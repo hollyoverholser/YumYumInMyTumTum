@@ -5,7 +5,7 @@
 #include "food.h"
 #include "maxHeap.h"
 #include "mergeSort.h"
-#include <filesystem>
+#include <stdexcept>
 using namespace std;
 
 int main() {
@@ -44,14 +44,23 @@ int main() {
             cout << "1. Max Heap (suggests the food from your category with the highest amount of your specified macro)" << endl;
             cout << "2. Merge Sort (suggests the food from your category with the lowest amount of your specified macro)" << endl;
             cout << "0. Return to category selection" << endl;
-            cin >> sortChoice;
 
-            if (sortChoice == 0) {
-                cin.ignore();
-                break;
+            string selection;
+            getline(cin, selection);
+
+            try {
+                sortChoice = stoi(selection);
+            }
+            catch (invalid_argument) {
+                cout << "Invalid input! Please enter 1, 2, or 0." << endl;
+                continue;
+            }
+            catch (out_of_range) {
+                cout << "Number is too large! Please enter 1, 2, or 0." << endl;
+                continue;
             }
 
-            if (sortChoice == 1 || sortChoice == 2) {
+            if (sortChoice == 0 || sortChoice == 1 || sortChoice == 2) {
                 break;
             }
 
@@ -64,19 +73,28 @@ int main() {
 
         int nutrientChoice;
         while (true) {
-            cout << "\nChoose a nutrient to focus on: (Enter a number 0-3)" << endl;
+            cout << "Choose a nutrient to focus on: (Enter a number 0-3)" << endl;
             cout << "1. Protein" << endl;
             cout << "2. Carbohydrates" << endl;
             cout << "3. Sugar" << endl;
             cout << "0. Return to category selection" << endl;
-            cin >> nutrientChoice;
 
-            if (nutrientChoice == 0) {
-                cin.ignore();
-                break;
+            string selection;
+            getline(cin, selection);
+
+            try {
+                nutrientChoice = stoi(selection);
+            }
+            catch (invalid_argument) {
+                cout << "Invalid input! Please enter 1, 2, 3, or 0." << endl;
+                continue;
+            }
+            catch (out_of_range) {
+                cout << "Number is too large! Please enter 1, 2, 3, or 0." << endl;
+                continue;
             }
 
-            if (nutrientChoice == 1 || nutrientChoice == 2 || nutrientChoice == 3) {
+            if (nutrientChoice == 0 || nutrientChoice == 1 || nutrientChoice == 2 || nutrientChoice == 3) {
                 break;
             }
 
