@@ -41,8 +41,8 @@ int main() {
         int sortChoice;
         while (true) {
             cout << "How would you like to sort your foods? Enter a number 0-3" << endl;
-            cout << "1. Heap" << endl;
-            cout << "2. Merge Sort" << endl;
+            cout << "1. Max Heap (suggests the food from your category with the highest amount of your specified macro)" << endl;
+            cout << "2. Merge Sort (suggests the food from your category with the lowest amount of your specified macro)" << endl;
             cout << "0. Return to category selection" << endl;
             cin >> sortChoice;
 
@@ -99,17 +99,34 @@ int main() {
         }
 
         if (nutrientChoice == 1) {
-            cout << "The item with the lowest amount of protein in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
-            cout << "Protein: " << matchingCategory[0].protein << endl << endl;
+            if (sortChoice == 1) {
+                cout << "The item with the highest amount of protein in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
+                cout << "Protein: " << matchingCategory[0].protein << endl << endl;
+            }
+            else if (sortChoice == 2) {
+                cout << "The item with the lowest amount of protein in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
+                cout << "Protein: " << matchingCategory[0].protein << endl << endl;
+            }
         }
         else if (nutrientChoice == 2) {
-            cout << "The item with the lowest amount of carbohydrates in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
-            cout << "Carbohydrates: " << matchingCategory[0].carbohydrates << endl << endl;
+            if (sortChoice == 1) {
+                cout << "The item with the highest amount of carbohydrates in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
+                cout << "Carbohydrates: " << matchingCategory[0].carbohydrates << endl << endl;
+            }
+            else if (sortChoice == 2) {
+                cout << "The item with the lowest amount of carbohydrates in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
+                cout << "Carbohydrates: " << matchingCategory[0].carbohydrates << endl << endl;
+            }
         }
         else if (nutrientChoice == 3) {
-            cout << "The item with the lowest amount of sugar in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
-            cout << "Sugar: " << matchingCategory[0].sugar << endl << endl;;
-
+            if (sortChoice == 1) {
+                cout << "The item with the highest amount of sugar in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
+                cout << "Sugar: " << matchingCategory[0].sugar << endl << endl;
+            }
+            else if (sortChoice == 2) {
+                cout << "The item with the lowest amount of sugar in " << categoryIn << " is \"" << matchingCategory[0].name << "\"" << endl;
+                cout << "Sugar: " << matchingCategory[0].sugar << endl << endl;
+            }
         }
 
         cin.ignore();
