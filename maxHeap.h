@@ -11,10 +11,9 @@
 
 enum class SortField { Protein, Carbohydrates, Sugar };
 
-class MaxHeap {
+class maxHeap {
 	public:
-		MaxHeap();
-		bool build(const std::vector<Food>& foods, const std::string& fieldName);
+		maxHeap();
 		void build(const std::vector<Food>& foods, SortField field);
 
 		void push(const Food& food);
@@ -23,13 +22,6 @@ class MaxHeap {
 
 		bool empty() const;
 		size_t size() const;
-		SortField sortField() const;
-
-		std::vector<Food> topK(size_t k) const;
-		void printTop(size_t k) const;
-
-		static bool parseField(const std::string& name, SortField& field);
-		static std::string fieldName(SortField field);
 
 	private:
 		std::vector<Food> data_;
@@ -38,7 +30,7 @@ class MaxHeap {
 		double value(const Food& food) const;
 		bool less(const Food& a, const Food& b) const;
 		void heapifyUp(size_t i);
-		voidheapifyDown(size_t i);
+		void heapifyDown(size_t i);
 };
 
 #endif //YUMYUMINMYTUMTUM_MAXHEAP_H
