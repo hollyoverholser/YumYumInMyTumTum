@@ -158,6 +158,5 @@ int main() {
             }
         }
 
-        cin.ignore();
     }
 }
