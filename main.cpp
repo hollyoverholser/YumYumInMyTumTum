@@ -107,7 +107,7 @@ int main() {
 
         if (sortChoice == 1) {
             // call heap function: maybe include nutrient choice as a parameter to sort off of and use matchingCategory foods
-            // stores specific item that is lowest in that macro in a variable (matchingCategory[0] if sorted in place)
+            // stores specific item that is highest in that macro in a variable (matchingCategory[0] if sorted in place)
 			SortField field;
 			if (nutrientChoice == 1) {
 				field = SortField::Protein;
@@ -118,6 +118,7 @@ int main() {
 			}
 			maxHeap heap;
 			heap.build(matchingCategory, field);
+            matchingCategory[0] = heap.top();
 		}
 
         else if (sortChoice == 2) {
