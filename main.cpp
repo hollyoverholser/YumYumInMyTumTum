@@ -40,7 +40,7 @@ int main() {
 
         int sortChoice;
         while (true) {
-            cout << "How would you like to sort your foods? Enter a number 0-3" << endl;
+            cout << "How would you like to sort your foods? Enter a number 0-2:" << endl;
             cout << "1. Max Heap (suggests the food from your category with the highest amount of your specified macro)" << endl;
             cout << "2. Merge Sort (suggests the food from your category with the lowest amount of your specified macro)" << endl;
             cout << "0. Return to category selection" << endl;
